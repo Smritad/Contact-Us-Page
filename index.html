@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact 3Di</title>
+  <style>
+    /* Reset and basic layout */
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+    body { line-height: 1.6; }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #021121;
+      color: #fff;
+      padding: 10px 20px;
+      position: relative;
+    }
+
+    .logo { font-size: 1.5rem; font-weight: bold; }
+
+    .nav ul {
+      display: flex;
+      gap: 20px;
+      list-style: none;
+    }
+
+    .nav ul li {
+      cursor: pointer;
+    }
+
+    .btn-demo {
+      background: #00aaff;
+      color: #fff;
+      border: none;
+      padding: 8px 15px;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      .nav {
+        display: none;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        background: #003366;
+        width: 100%;
+      }
+
+      .nav.active {
+        display: block;
+      }
+
+      .nav ul {
+        flex-direction: column;
+        padding: 10px;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+    }
+
+    .banner {
+      background: #f0f0f0;
+      padding: 60px 20px;
+    }
+    .banner {
+  position: relative;
+  background-image: url('./image/contactus.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 100px 20px;
+  color: white;
+  z-index: 22;
+  overflow: hidden;
+}
+
+.banner::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6); /* Adjust the opacity here (0.6 = 60% darkness) */
+  z-index: -1;
+}
+
+
+.banner-text h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.banner-text p {
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+    .contact-boxes {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding: 20px;
+      justify-content: center;
+    }
+
+    .box {
+      background: #e9e9e9;
+      padding: 20px;
+      border-radius: 8px;
+      width: 300px;
+    }
+
+    .form-section {
+      padding: 20px;
+      background: #f9f9f9;
+      text-align: center;
+    }
+
+    form {
+      max-width: 700px;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .form-group {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .form-group input, select, textarea {
+      flex: 1;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      min-width: 200px;
+    }
+
+    .checkbox-group {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .submit-btn {
+      background: #00aaff;
+      color: #fff;
+      border: none;
+      padding: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      max-width: 200px;
+    }
+
+    .footer {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      padding: 20px;
+      background: #021121;
+      color: white;
+    }
+
+    @media (max-width: 768px) {
+      .contact-boxes {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  background: #0d1117;
+  color: white;
+  padding: 40px 20px;
+  font-size: 14px;
+}
+
+.footer-section {
+  flex: 1 1 200px;
+  margin: 10px;
+}
+
+.footer-section h4 {
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+  color: #ccc;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 8px;
+  cursor: pointer;
+}
+
+.footer-info {
+  flex: 1 1 250px;
+  margin: 10px;
+  text-align: left;
+}
+
+.footer-logo {
+  color: #f44336;
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.footer-social a {
+  margin-right: 10px;
+  display: inline-block;
+}
+
+.footer-social img {
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+}
+
+.footer a {
+  color: #aaa;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .footer {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .footer-section,
+  .footer-info {
+    margin-bottom: 20px;
+  }
+}
+
+    }
+    .footer-social {
+  display: flex;
+  gap: 15px;  /* Space between icons */
+}
+
+.footer-social a {
+  display: inline-block;
+}
+
+.footer-social img {
+  width: 40px;    /* Set width of the icon */
+  height: 40px;   /* Set height of the icon */
+  object-fit: cover; /* Ensures the image is scaled without distortion */
+  transition: transform 0.3s ease; /* Add a smooth hover effect */
+}
+
+.footer-social img:hover {
+  transform: scale(1.1);  /* Slightly increase the size on hover */
+}
+
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="logo">3Di</div>
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    <nav class="nav" id="navMenu">
+      <ul>
+        <li>Products</li>
+        <li>3Di Engage Platform</li>
+        <li>Resources</li>
+        <li>Company</li>
+        <li><button class="btn-demo">Request Demo</button></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="banner">
+    <div class="banner-text">
+    <h1 style="text-align: center;">Contact 3Di</h1>
+    <p>How can we help? Complete the form below or give us a call to let us know.</p>
+    </div>
+  </section>
+
+  <section class="contact-boxes">
+  <div class="box">
+    <div class="box-icon" style="text-align: center;">🏢</div>
+    <h3>Headquarters & US Sales Office</h3>
+    <p>3 Pointe Drive<br> Suite 307<br> Brea, CA 92821, USA</p>
+  </div>
+
+  <div class="box">
+    <div class="box-icon " style="text-align: center;">🏢</div>
+    <h3>Europe Sales Office Mumbai</h3>
+    <p>Millennium Business Park<br> Bldg. 4/402, Sector 1<br> Mahape, Navi Mumbai – 400710, India</p>
+  </div>
+
+  <div class="box">
+    <div class="box-icon" style="text-align: center;">🏢</div>
+    <h3>India Sales Office Pune</h3>
+    <p>135/136, Yerwada Court, 4th floor<br> Anand Park, Pune – 411006, India</p>
+  </div>
+</section>
+
+
+  <section class="form-section">
+    <h2 class="text-center">Get In Touch</h2>
+    <form id="contact-form" onsubmit="return handleSubmit(event)">
+      <div class="form-group">
+        <input type="text" placeholder="First name*" required />
+        <input type="text" placeholder="Last name*" required />
+      </div>
+      <div class="form-group">
+        <input type="email" placeholder="Work Email*" required />
+        <input type="tel" placeholder="Phone Number" required />
+      </div>
+      <div class="form-group">
+        <input type="text" placeholder="Job Title" required />
+        <input type="text" placeholder="Organization Name" required />
+      </div>
+      <div class="form-group">
+        <select required>
+          <option value="">Reason for Inquiry*</option>
+          <option value="Support">Support</option>
+          <option value="Sales">Sales</option>
+          <option value="Partnership">Partnership</option>
+        </select>
+      </div>
+      <textarea rows="4" placeholder="Message*" required></textarea>
+      <div class="checkbox-group">
+        <input type="checkbox" id="subscribe" />
+        <label for="subscribe">I agree to receive other communications from 3Di.</label>
+      </div>
+      <p class="privacy-text">
+        By clicking submit, you consent to allow 3Di Systems to store and process your personal information.
+      </p>
+      <button type="submit" class="submit-btn">Submit</button>
+    </form>
+  </section>
+
+  <footer class="footer">
+  <div class="footer-section">
+    <h4>3Di Engage Technology Platform</h4>
+    <div>3Di Engage Overview</div>
+    <div>Accelerators</div>
+  </div>
+  <div class="footer-section">
+    <h4>Industries</h4>
+    <div>Housing</div>
+    <div>Community Risk Reduction & Public Safety</div>
+    <div>Citizen Engagement</div>
+    <div>Environmental Health & Safety</div>
+  </div>
+  <div class="footer-section">
+    <h4>Consulting Services</h4>
+    <div>Custom Engage</div>
+    <div>IT Staff Augmentation</div>
+    <div>Legacy Support</div>
+  </div>
+  <div class="footer-section">
+    <h4>Company</h4>
+    <div>About 3Di</div>
+    <div>Purchase Vehicles</div>
+    <div>Careers</div>
+    <div>Contact</div>
+    <div>- USA</div>
+    <div>- India</div>
+  </div>
+  <div class="footer-info">
+    <h2 class="footer-logo" style="color:red;">3Di</h2>
+    <p>3 Pointe Drive, Suite 307, Brea, CA 92821, USA</p>
+    <div class="footer-social">
+      <a href="#"><img src="./image/facebook.jpg" alt="Facebook" /></a>
+      <a href="#"><img src="./image/insta.jpg" alt="Instagram" /></a>
+    </div>
+    <p>&copy; 2025 3Di Systems. All rights reserved.</p>
+    <p><a href="#">Terms of Use</a> | <a href="#">Privacy Policy</a></p>
+    <p>GSA Schedule 70 Contract: GS-35F-293AA</p>
+  </div>
+</footer>
+
+
+
+  <script>
+    function toggleMenu() {
+      document.getElementById("navMenu").classList.toggle("active");
+    }
+
+    function handleSubmit(e) {
+      e.preventDefault();
+      alert("Form submitted successfully!");
+      document.getElementById("contact-form").reset();
+      return false;
+    }
+  </script>
+</body>
+</html>
